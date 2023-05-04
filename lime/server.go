@@ -39,6 +39,7 @@ func NewServer(env Env, ops ...APIServerOption) (APIServer, error) {
 	})
 	mux.Handle("/healthz", opts.healthzHandler)
 	mux.Handle("/readiness", opts.readinessHandler)
+	mux.Handle("/", defaultHealthzHandler)
 
 	s := &apiServer{
 		logger: defaultLogger,
