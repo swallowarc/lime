@@ -85,6 +85,7 @@ func (wh *webhookHandler) callEventHandlers(events []*linebot.Event, cli *linebo
 
 		if err := handler.Handle(ctx, event, cli); err != nil {
 			wh.logger.Error("failed to handle event", zap.Error(err), zap.String("webhook_event_id", event.WebhookEventID))
+			return true
 		}
 	}
 
