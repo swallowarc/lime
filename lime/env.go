@@ -26,6 +26,9 @@ type (
 		//  - Do not re-execute events with WebhookEventIDs that have already been processed.
 		//  - Or, the processing in the handler should idempotent.
 		EnableReturnErrorCode bool `envconfig:"enable_re_delivery_webhook" default:"false"`
+		// EnableEventLog is a flag to enable per-event access logging..
+		//   To output on the event handler side, set to false.
+		EnableEventLog bool `envconfig:"enable_event_log" default:"true"`
 	}
 )
 

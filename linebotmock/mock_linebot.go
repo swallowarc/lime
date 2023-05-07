@@ -6,6 +6,7 @@ package mock_lime
 
 import (
 	io "io"
+	http "net/http"
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
@@ -101,6 +102,75 @@ func (mr *MockLineBotClientMockRecorder) AddLIFF(app interface{}) *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddLIFF", reflect.TypeOf((*MockLineBotClient)(nil).AddLIFF), app)
 }
 
+// BroadcastMessage mocks base method.
+func (m *MockLineBotClient) BroadcastMessage(messages ...linebot.SendingMessage) *linebot.BroadcastMessageCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{}
+	for _, a := range messages {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "BroadcastMessage", varargs...)
+	ret0, _ := ret[0].(*linebot.BroadcastMessageCall)
+	return ret0
+}
+
+// BroadcastMessage indicates an expected call of BroadcastMessage.
+func (mr *MockLineBotClientMockRecorder) BroadcastMessage(messages ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "BroadcastMessage", reflect.TypeOf((*MockLineBotClient)(nil).BroadcastMessage), messages...)
+}
+
+// BulkLinkRichMenu mocks base method.
+func (m *MockLineBotClient) BulkLinkRichMenu(richMenuID string, userIDs ...string) *linebot.BulkLinkRichMenuCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{richMenuID}
+	for _, a := range userIDs {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "BulkLinkRichMenu", varargs...)
+	ret0, _ := ret[0].(*linebot.BulkLinkRichMenuCall)
+	return ret0
+}
+
+// BulkLinkRichMenu indicates an expected call of BulkLinkRichMenu.
+func (mr *MockLineBotClientMockRecorder) BulkLinkRichMenu(richMenuID interface{}, userIDs ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{richMenuID}, userIDs...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "BulkLinkRichMenu", reflect.TypeOf((*MockLineBotClient)(nil).BulkLinkRichMenu), varargs...)
+}
+
+// BulkUnlinkRichMenu mocks base method.
+func (m *MockLineBotClient) BulkUnlinkRichMenu(userIDs ...string) *linebot.BulkUnlinkRichMenuCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{}
+	for _, a := range userIDs {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "BulkUnlinkRichMenu", varargs...)
+	ret0, _ := ret[0].(*linebot.BulkUnlinkRichMenuCall)
+	return ret0
+}
+
+// BulkUnlinkRichMenu indicates an expected call of BulkUnlinkRichMenu.
+func (mr *MockLineBotClientMockRecorder) BulkUnlinkRichMenu(userIDs ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "BulkUnlinkRichMenu", reflect.TypeOf((*MockLineBotClient)(nil).BulkUnlinkRichMenu), userIDs...)
+}
+
+// CancelDefaultRichMenu mocks base method.
+func (m *MockLineBotClient) CancelDefaultRichMenu() *linebot.CancelDefaultRichMenuCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CancelDefaultRichMenu")
+	ret0, _ := ret[0].(*linebot.CancelDefaultRichMenuCall)
+	return ret0
+}
+
+// CancelDefaultRichMenu indicates an expected call of CancelDefaultRichMenu.
+func (mr *MockLineBotClientMockRecorder) CancelDefaultRichMenu() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CancelDefaultRichMenu", reflect.TypeOf((*MockLineBotClient)(nil).CancelDefaultRichMenu))
+}
+
 // ChangeAudienceGroupAuthorityLevel mocks base method.
 func (m *MockLineBotClient) ChangeAudienceGroupAuthorityLevel(authorityLevel linebot.AudienceAuthorityLevelType) *linebot.ChangeAudienceGroupAuthorityLevelCall {
 	m.ctrl.T.Helper()
@@ -134,6 +204,34 @@ func (mr *MockLineBotClientMockRecorder) ClickAudienceGroup(description, request
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ClickAudienceGroup", reflect.TypeOf((*MockLineBotClient)(nil).ClickAudienceGroup), varargs...)
 }
 
+// CreateRichMenu mocks base method.
+func (m *MockLineBotClient) CreateRichMenu(richMenu linebot.RichMenu) *linebot.CreateRichMenuCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CreateRichMenu", richMenu)
+	ret0, _ := ret[0].(*linebot.CreateRichMenuCall)
+	return ret0
+}
+
+// CreateRichMenu indicates an expected call of CreateRichMenu.
+func (mr *MockLineBotClientMockRecorder) CreateRichMenu(richMenu interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateRichMenu", reflect.TypeOf((*MockLineBotClient)(nil).CreateRichMenu), richMenu)
+}
+
+// CreateRichMenuAlias mocks base method.
+func (m *MockLineBotClient) CreateRichMenuAlias(richMenuAliasID, richMenuID string) *linebot.CreateRichMenuAliasCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CreateRichMenuAlias", richMenuAliasID, richMenuID)
+	ret0, _ := ret[0].(*linebot.CreateRichMenuAliasCall)
+	return ret0
+}
+
+// CreateRichMenuAlias indicates an expected call of CreateRichMenuAlias.
+func (mr *MockLineBotClientMockRecorder) CreateRichMenuAlias(richMenuAliasID, richMenuID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateRichMenuAlias", reflect.TypeOf((*MockLineBotClient)(nil).CreateRichMenuAlias), richMenuAliasID, richMenuID)
+}
+
 // DeleteAudienceGroup mocks base method.
 func (m *MockLineBotClient) DeleteAudienceGroup(audienceGroupID int) *linebot.DeleteAudienceGroupCall {
 	m.ctrl.T.Helper()
@@ -160,6 +258,62 @@ func (m *MockLineBotClient) DeleteLIFF(liffID string) *linebot.DeleteLIFFCall {
 func (mr *MockLineBotClientMockRecorder) DeleteLIFF(liffID interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteLIFF", reflect.TypeOf((*MockLineBotClient)(nil).DeleteLIFF), liffID)
+}
+
+// DeleteRichMenu mocks base method.
+func (m *MockLineBotClient) DeleteRichMenu(richMenuID string) *linebot.DeleteRichMenuCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "DeleteRichMenu", richMenuID)
+	ret0, _ := ret[0].(*linebot.DeleteRichMenuCall)
+	return ret0
+}
+
+// DeleteRichMenu indicates an expected call of DeleteRichMenu.
+func (mr *MockLineBotClientMockRecorder) DeleteRichMenu(richMenuID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteRichMenu", reflect.TypeOf((*MockLineBotClient)(nil).DeleteRichMenu), richMenuID)
+}
+
+// DeleteRichMenuAlias mocks base method.
+func (m *MockLineBotClient) DeleteRichMenuAlias(richMenuAliasID string) *linebot.DeleteRichMenuAliasCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "DeleteRichMenuAlias", richMenuAliasID)
+	ret0, _ := ret[0].(*linebot.DeleteRichMenuAliasCall)
+	return ret0
+}
+
+// DeleteRichMenuAlias indicates an expected call of DeleteRichMenuAlias.
+func (mr *MockLineBotClientMockRecorder) DeleteRichMenuAlias(richMenuAliasID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteRichMenuAlias", reflect.TypeOf((*MockLineBotClient)(nil).DeleteRichMenuAlias), richMenuAliasID)
+}
+
+// DownloadRichMenuImage mocks base method.
+func (m *MockLineBotClient) DownloadRichMenuImage(richMenuID string) *linebot.DownloadRichMenuImageCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "DownloadRichMenuImage", richMenuID)
+	ret0, _ := ret[0].(*linebot.DownloadRichMenuImageCall)
+	return ret0
+}
+
+// DownloadRichMenuImage indicates an expected call of DownloadRichMenuImage.
+func (mr *MockLineBotClientMockRecorder) DownloadRichMenuImage(richMenuID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DownloadRichMenuImage", reflect.TypeOf((*MockLineBotClient)(nil).DownloadRichMenuImage), richMenuID)
+}
+
+// GetAccessTokensV2 mocks base method.
+func (m *MockLineBotClient) GetAccessTokensV2(clientAssertion string) *linebot.GetAccessTokensV2Call {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetAccessTokensV2", clientAssertion)
+	ret0, _ := ret[0].(*linebot.GetAccessTokensV2Call)
+	return ret0
+}
+
+// GetAccessTokensV2 indicates an expected call of GetAccessTokensV2.
+func (mr *MockLineBotClientMockRecorder) GetAccessTokensV2(clientAssertion interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetAccessTokensV2", reflect.TypeOf((*MockLineBotClient)(nil).GetAccessTokensV2), clientAssertion)
 }
 
 // GetAudienceGroup mocks base method.
@@ -204,6 +358,20 @@ func (mr *MockLineBotClientMockRecorder) GetBotInfo() *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetBotInfo", reflect.TypeOf((*MockLineBotClient)(nil).GetBotInfo))
 }
 
+// GetDefaultRichMenu mocks base method.
+func (m *MockLineBotClient) GetDefaultRichMenu() *linebot.GetDefaultRichMenuCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetDefaultRichMenu")
+	ret0, _ := ret[0].(*linebot.GetDefaultRichMenuCall)
+	return ret0
+}
+
+// GetDefaultRichMenu indicates an expected call of GetDefaultRichMenu.
+func (mr *MockLineBotClientMockRecorder) GetDefaultRichMenu() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetDefaultRichMenu", reflect.TypeOf((*MockLineBotClient)(nil).GetDefaultRichMenu))
+}
+
 // GetFollowerIDs mocks base method.
 func (m *MockLineBotClient) GetFollowerIDs(continuationToken string) *linebot.GetFollowerIDsCall {
 	m.ctrl.T.Helper()
@@ -244,6 +412,34 @@ func (m *MockLineBotClient) GetGroupMemberCount(groupID string) *linebot.GetGrou
 func (mr *MockLineBotClientMockRecorder) GetGroupMemberCount(groupID interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetGroupMemberCount", reflect.TypeOf((*MockLineBotClient)(nil).GetGroupMemberCount), groupID)
+}
+
+// GetGroupMemberIDs mocks base method.
+func (m *MockLineBotClient) GetGroupMemberIDs(groupID, continuationToken string) *linebot.GetGroupMemberIDsCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetGroupMemberIDs", groupID, continuationToken)
+	ret0, _ := ret[0].(*linebot.GetGroupMemberIDsCall)
+	return ret0
+}
+
+// GetGroupMemberIDs indicates an expected call of GetGroupMemberIDs.
+func (mr *MockLineBotClientMockRecorder) GetGroupMemberIDs(groupID, continuationToken interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetGroupMemberIDs", reflect.TypeOf((*MockLineBotClient)(nil).GetGroupMemberIDs), groupID, continuationToken)
+}
+
+// GetGroupMemberProfile mocks base method.
+func (m *MockLineBotClient) GetGroupMemberProfile(groupID, userID string) *linebot.GetGroupMemberProfileCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetGroupMemberProfile", groupID, userID)
+	ret0, _ := ret[0].(*linebot.GetGroupMemberProfileCall)
+	return ret0
+}
+
+// GetGroupMemberProfile indicates an expected call of GetGroupMemberProfile.
+func (mr *MockLineBotClientMockRecorder) GetGroupMemberProfile(groupID, userID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetGroupMemberProfile", reflect.TypeOf((*MockLineBotClient)(nil).GetGroupMemberProfile), groupID, userID)
 }
 
 // GetGroupSummary mocks base method.
@@ -288,6 +484,20 @@ func (mr *MockLineBotClientMockRecorder) GetMessageConsumption() *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetMessageConsumption", reflect.TypeOf((*MockLineBotClient)(nil).GetMessageConsumption))
 }
 
+// GetMessageContent mocks base method.
+func (m *MockLineBotClient) GetMessageContent(messageID string) *linebot.GetMessageContentCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetMessageContent", messageID)
+	ret0, _ := ret[0].(*linebot.GetMessageContentCall)
+	return ret0
+}
+
+// GetMessageContent indicates an expected call of GetMessageContent.
+func (mr *MockLineBotClientMockRecorder) GetMessageContent(messageID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetMessageContent", reflect.TypeOf((*MockLineBotClient)(nil).GetMessageContent), messageID)
+}
+
 // GetMessageQuota mocks base method.
 func (m *MockLineBotClient) GetMessageQuota() *linebot.GetMessageQuotaCall {
 	m.ctrl.T.Helper()
@@ -314,6 +524,20 @@ func (m *MockLineBotClient) GetMessageQuotaConsumption() *linebot.GetMessageQuot
 func (mr *MockLineBotClientMockRecorder) GetMessageQuotaConsumption() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetMessageQuotaConsumption", reflect.TypeOf((*MockLineBotClient)(nil).GetMessageQuotaConsumption))
+}
+
+// GetNumberBroadcastMessages mocks base method.
+func (m *MockLineBotClient) GetNumberBroadcastMessages(date string) *linebot.GetNumberMessagesCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetNumberBroadcastMessages", date)
+	ret0, _ := ret[0].(*linebot.GetNumberMessagesCall)
+	return ret0
+}
+
+// GetNumberBroadcastMessages indicates an expected call of GetNumberBroadcastMessages.
+func (mr *MockLineBotClientMockRecorder) GetNumberBroadcastMessages(date interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetNumberBroadcastMessages", reflect.TypeOf((*MockLineBotClient)(nil).GetNumberBroadcastMessages), date)
 }
 
 // GetNumberFollowers mocks base method.
@@ -344,6 +568,132 @@ func (mr *MockLineBotClientMockRecorder) GetNumberMessagesDelivery(date interfac
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetNumberMessagesDelivery", reflect.TypeOf((*MockLineBotClient)(nil).GetNumberMessagesDelivery), date)
 }
 
+// GetNumberMulticastMessages mocks base method.
+func (m *MockLineBotClient) GetNumberMulticastMessages(date string) *linebot.GetNumberMessagesCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetNumberMulticastMessages", date)
+	ret0, _ := ret[0].(*linebot.GetNumberMessagesCall)
+	return ret0
+}
+
+// GetNumberMulticastMessages indicates an expected call of GetNumberMulticastMessages.
+func (mr *MockLineBotClientMockRecorder) GetNumberMulticastMessages(date interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetNumberMulticastMessages", reflect.TypeOf((*MockLineBotClient)(nil).GetNumberMulticastMessages), date)
+}
+
+// GetNumberPushMessages mocks base method.
+func (m *MockLineBotClient) GetNumberPushMessages(date string) *linebot.GetNumberMessagesCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetNumberPushMessages", date)
+	ret0, _ := ret[0].(*linebot.GetNumberMessagesCall)
+	return ret0
+}
+
+// GetNumberPushMessages indicates an expected call of GetNumberPushMessages.
+func (mr *MockLineBotClientMockRecorder) GetNumberPushMessages(date interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetNumberPushMessages", reflect.TypeOf((*MockLineBotClient)(nil).GetNumberPushMessages), date)
+}
+
+// GetNumberReplyMessages mocks base method.
+func (m *MockLineBotClient) GetNumberReplyMessages(date string) *linebot.GetNumberMessagesCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetNumberReplyMessages", date)
+	ret0, _ := ret[0].(*linebot.GetNumberMessagesCall)
+	return ret0
+}
+
+// GetNumberReplyMessages indicates an expected call of GetNumberReplyMessages.
+func (mr *MockLineBotClientMockRecorder) GetNumberReplyMessages(date interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetNumberReplyMessages", reflect.TypeOf((*MockLineBotClient)(nil).GetNumberReplyMessages), date)
+}
+
+// GetProfile mocks base method.
+func (m *MockLineBotClient) GetProfile(userID string) *linebot.GetProfileCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetProfile", userID)
+	ret0, _ := ret[0].(*linebot.GetProfileCall)
+	return ret0
+}
+
+// GetProfile indicates an expected call of GetProfile.
+func (mr *MockLineBotClientMockRecorder) GetProfile(userID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetProfile", reflect.TypeOf((*MockLineBotClient)(nil).GetProfile), userID)
+}
+
+// GetProgressNarrowcastMessages mocks base method.
+func (m *MockLineBotClient) GetProgressNarrowcastMessages(requestID string) *linebot.GetProgressMessagesCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetProgressNarrowcastMessages", requestID)
+	ret0, _ := ret[0].(*linebot.GetProgressMessagesCall)
+	return ret0
+}
+
+// GetProgressNarrowcastMessages indicates an expected call of GetProgressNarrowcastMessages.
+func (mr *MockLineBotClientMockRecorder) GetProgressNarrowcastMessages(requestID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetProgressNarrowcastMessages", reflect.TypeOf((*MockLineBotClient)(nil).GetProgressNarrowcastMessages), requestID)
+}
+
+// GetRichMenu mocks base method.
+func (m *MockLineBotClient) GetRichMenu(richMenuID string) *linebot.GetRichMenuCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetRichMenu", richMenuID)
+	ret0, _ := ret[0].(*linebot.GetRichMenuCall)
+	return ret0
+}
+
+// GetRichMenu indicates an expected call of GetRichMenu.
+func (mr *MockLineBotClientMockRecorder) GetRichMenu(richMenuID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetRichMenu", reflect.TypeOf((*MockLineBotClient)(nil).GetRichMenu), richMenuID)
+}
+
+// GetRichMenuAlias mocks base method.
+func (m *MockLineBotClient) GetRichMenuAlias(richMenuAliasID string) *linebot.GetRichMenuAliasCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetRichMenuAlias", richMenuAliasID)
+	ret0, _ := ret[0].(*linebot.GetRichMenuAliasCall)
+	return ret0
+}
+
+// GetRichMenuAlias indicates an expected call of GetRichMenuAlias.
+func (mr *MockLineBotClientMockRecorder) GetRichMenuAlias(richMenuAliasID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetRichMenuAlias", reflect.TypeOf((*MockLineBotClient)(nil).GetRichMenuAlias), richMenuAliasID)
+}
+
+// GetRichMenuAliasList mocks base method.
+func (m *MockLineBotClient) GetRichMenuAliasList() *linebot.GetRichMenuAliasListCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetRichMenuAliasList")
+	ret0, _ := ret[0].(*linebot.GetRichMenuAliasListCall)
+	return ret0
+}
+
+// GetRichMenuAliasList indicates an expected call of GetRichMenuAliasList.
+func (mr *MockLineBotClientMockRecorder) GetRichMenuAliasList() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetRichMenuAliasList", reflect.TypeOf((*MockLineBotClient)(nil).GetRichMenuAliasList))
+}
+
+// GetRichMenuList mocks base method.
+func (m *MockLineBotClient) GetRichMenuList() *linebot.GetRichMenuListCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetRichMenuList")
+	ret0, _ := ret[0].(*linebot.GetRichMenuListCall)
+	return ret0
+}
+
+// GetRichMenuList indicates an expected call of GetRichMenuList.
+func (mr *MockLineBotClientMockRecorder) GetRichMenuList() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetRichMenuList", reflect.TypeOf((*MockLineBotClient)(nil).GetRichMenuList))
+}
+
 // GetRoomMemberCount mocks base method.
 func (m *MockLineBotClient) GetRoomMemberCount(roomID string) *linebot.GetRoomMemberCountCall {
 	m.ctrl.T.Helper()
@@ -356,6 +706,34 @@ func (m *MockLineBotClient) GetRoomMemberCount(roomID string) *linebot.GetRoomMe
 func (mr *MockLineBotClientMockRecorder) GetRoomMemberCount(roomID interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetRoomMemberCount", reflect.TypeOf((*MockLineBotClient)(nil).GetRoomMemberCount), roomID)
+}
+
+// GetRoomMemberIDs mocks base method.
+func (m *MockLineBotClient) GetRoomMemberIDs(roomID, continuationToken string) *linebot.GetRoomMemberIDsCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetRoomMemberIDs", roomID, continuationToken)
+	ret0, _ := ret[0].(*linebot.GetRoomMemberIDsCall)
+	return ret0
+}
+
+// GetRoomMemberIDs indicates an expected call of GetRoomMemberIDs.
+func (mr *MockLineBotClientMockRecorder) GetRoomMemberIDs(roomID, continuationToken interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetRoomMemberIDs", reflect.TypeOf((*MockLineBotClient)(nil).GetRoomMemberIDs), roomID, continuationToken)
+}
+
+// GetRoomMemberProfile mocks base method.
+func (m *MockLineBotClient) GetRoomMemberProfile(roomID, userID string) *linebot.GetRoomMemberProfileCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetRoomMemberProfile", roomID, userID)
+	ret0, _ := ret[0].(*linebot.GetRoomMemberProfileCall)
+	return ret0
+}
+
+// GetRoomMemberProfile indicates an expected call of GetRoomMemberProfile.
+func (mr *MockLineBotClientMockRecorder) GetRoomMemberProfile(roomID, userID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetRoomMemberProfile", reflect.TypeOf((*MockLineBotClient)(nil).GetRoomMemberProfile), roomID, userID)
 }
 
 // GetUserInteractionStats mocks base method.
@@ -372,6 +750,34 @@ func (mr *MockLineBotClientMockRecorder) GetUserInteractionStats(requestID inter
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetUserInteractionStats", reflect.TypeOf((*MockLineBotClient)(nil).GetUserInteractionStats), requestID)
 }
 
+// GetUserRichMenu mocks base method.
+func (m *MockLineBotClient) GetUserRichMenu(userID string) *linebot.GetUserRichMenuCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetUserRichMenu", userID)
+	ret0, _ := ret[0].(*linebot.GetUserRichMenuCall)
+	return ret0
+}
+
+// GetUserRichMenu indicates an expected call of GetUserRichMenu.
+func (mr *MockLineBotClientMockRecorder) GetUserRichMenu(userID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetUserRichMenu", reflect.TypeOf((*MockLineBotClient)(nil).GetUserRichMenu), userID)
+}
+
+// GetWebhookInfo mocks base method.
+func (m *MockLineBotClient) GetWebhookInfo() *linebot.GetWebhookInfo {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetWebhookInfo")
+	ret0, _ := ret[0].(*linebot.GetWebhookInfo)
+	return ret0
+}
+
+// GetWebhookInfo indicates an expected call of GetWebhookInfo.
+func (mr *MockLineBotClientMockRecorder) GetWebhookInfo() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetWebhookInfo", reflect.TypeOf((*MockLineBotClient)(nil).GetWebhookInfo))
+}
+
 // IMPAudienceGroup mocks base method.
 func (m *MockLineBotClient) IMPAudienceGroup(description, requestID string) *linebot.IMPAudienceGroupCall {
 	m.ctrl.T.Helper()
@@ -384,6 +790,48 @@ func (m *MockLineBotClient) IMPAudienceGroup(description, requestID string) *lin
 func (mr *MockLineBotClientMockRecorder) IMPAudienceGroup(description, requestID interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IMPAudienceGroup", reflect.TypeOf((*MockLineBotClient)(nil).IMPAudienceGroup), description, requestID)
+}
+
+// IssueAccessToken mocks base method.
+func (m *MockLineBotClient) IssueAccessToken(channelID, channelSecret string) *linebot.IssueAccessTokenCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "IssueAccessToken", channelID, channelSecret)
+	ret0, _ := ret[0].(*linebot.IssueAccessTokenCall)
+	return ret0
+}
+
+// IssueAccessToken indicates an expected call of IssueAccessToken.
+func (mr *MockLineBotClientMockRecorder) IssueAccessToken(channelID, channelSecret interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IssueAccessToken", reflect.TypeOf((*MockLineBotClient)(nil).IssueAccessToken), channelID, channelSecret)
+}
+
+// IssueAccessTokenV2 mocks base method.
+func (m *MockLineBotClient) IssueAccessTokenV2(clientAssertion string) *linebot.IssueAccessTokenV2Call {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "IssueAccessTokenV2", clientAssertion)
+	ret0, _ := ret[0].(*linebot.IssueAccessTokenV2Call)
+	return ret0
+}
+
+// IssueAccessTokenV2 indicates an expected call of IssueAccessTokenV2.
+func (mr *MockLineBotClientMockRecorder) IssueAccessTokenV2(clientAssertion interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IssueAccessTokenV2", reflect.TypeOf((*MockLineBotClient)(nil).IssueAccessTokenV2), clientAssertion)
+}
+
+// IssueLinkToken mocks base method.
+func (m *MockLineBotClient) IssueLinkToken(userID string) *linebot.IssueLinkTokenCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "IssueLinkToken", userID)
+	ret0, _ := ret[0].(*linebot.IssueLinkTokenCall)
+	return ret0
+}
+
+// IssueLinkToken indicates an expected call of IssueLinkToken.
+func (mr *MockLineBotClientMockRecorder) IssueLinkToken(userID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IssueLinkToken", reflect.TypeOf((*MockLineBotClient)(nil).IssueLinkToken), userID)
 }
 
 // LeaveGroup mocks base method.
@@ -414,6 +862,20 @@ func (mr *MockLineBotClientMockRecorder) LeaveRoom(roomID interface{}) *gomock.C
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "LeaveRoom", reflect.TypeOf((*MockLineBotClient)(nil).LeaveRoom), roomID)
 }
 
+// LinkUserRichMenu mocks base method.
+func (m *MockLineBotClient) LinkUserRichMenu(userID, richMenuID string) *linebot.LinkUserRichMenuCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "LinkUserRichMenu", userID, richMenuID)
+	ret0, _ := ret[0].(*linebot.LinkUserRichMenuCall)
+	return ret0
+}
+
+// LinkUserRichMenu indicates an expected call of LinkUserRichMenu.
+func (mr *MockLineBotClientMockRecorder) LinkUserRichMenu(userID, richMenuID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "LinkUserRichMenu", reflect.TypeOf((*MockLineBotClient)(nil).LinkUserRichMenu), userID, richMenuID)
+}
+
 // ListAudienceGroup mocks base method.
 func (m *MockLineBotClient) ListAudienceGroup(page int, options ...linebot.IListAudienceGroupOption) *linebot.ListAudienceGroupCall {
 	m.ctrl.T.Helper()
@@ -431,6 +893,43 @@ func (mr *MockLineBotClientMockRecorder) ListAudienceGroup(page interface{}, opt
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{page}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListAudienceGroup", reflect.TypeOf((*MockLineBotClient)(nil).ListAudienceGroup), varargs...)
+}
+
+// Multicast mocks base method.
+func (m *MockLineBotClient) Multicast(to []string, messages ...linebot.SendingMessage) *linebot.MulticastCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{to}
+	for _, a := range messages {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "Multicast", varargs...)
+	ret0, _ := ret[0].(*linebot.MulticastCall)
+	return ret0
+}
+
+// Multicast indicates an expected call of Multicast.
+func (mr *MockLineBotClientMockRecorder) Multicast(to interface{}, messages ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{to}, messages...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Multicast", reflect.TypeOf((*MockLineBotClient)(nil).Multicast), varargs...)
+}
+
+// Narrowcast mocks base method.
+func (m *MockLineBotClient) Narrowcast(messages ...linebot.SendingMessage) *linebot.NarrowcastCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{}
+	for _, a := range messages {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "Narrowcast", varargs...)
+	ret0, _ := ret[0].(*linebot.NarrowcastCall)
+	return ret0
+}
+
+// Narrowcast indicates an expected call of Narrowcast.
+func (mr *MockLineBotClientMockRecorder) Narrowcast(messages ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Narrowcast", reflect.TypeOf((*MockLineBotClient)(nil).Narrowcast), messages...)
 }
 
 // NewRawCall mocks base method.
@@ -463,6 +962,143 @@ func (mr *MockLineBotClientMockRecorder) NewRawCallWithBody(method, endpoint, bo
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "NewRawCallWithBody", reflect.TypeOf((*MockLineBotClient)(nil).NewRawCallWithBody), method, endpoint, body)
 }
 
+// ParseRequest mocks base method.
+func (m *MockLineBotClient) ParseRequest(r *http.Request) ([]*linebot.Event, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "ParseRequest", r)
+	ret0, _ := ret[0].([]*linebot.Event)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// ParseRequest indicates an expected call of ParseRequest.
+func (mr *MockLineBotClientMockRecorder) ParseRequest(r interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ParseRequest", reflect.TypeOf((*MockLineBotClient)(nil).ParseRequest), r)
+}
+
+// PushMessage mocks base method.
+func (m *MockLineBotClient) PushMessage(to string, messages ...linebot.SendingMessage) *linebot.PushMessageCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{to}
+	for _, a := range messages {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "PushMessage", varargs...)
+	ret0, _ := ret[0].(*linebot.PushMessageCall)
+	return ret0
+}
+
+// PushMessage indicates an expected call of PushMessage.
+func (mr *MockLineBotClientMockRecorder) PushMessage(to interface{}, messages ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{to}, messages...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "PushMessage", reflect.TypeOf((*MockLineBotClient)(nil).PushMessage), varargs...)
+}
+
+// ReplyMessage mocks base method.
+func (m *MockLineBotClient) ReplyMessage(replyToken string, messages ...linebot.SendingMessage) *linebot.ReplyMessageCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{replyToken}
+	for _, a := range messages {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ReplyMessage", varargs...)
+	ret0, _ := ret[0].(*linebot.ReplyMessageCall)
+	return ret0
+}
+
+// ReplyMessage indicates an expected call of ReplyMessage.
+func (mr *MockLineBotClientMockRecorder) ReplyMessage(replyToken interface{}, messages ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{replyToken}, messages...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ReplyMessage", reflect.TypeOf((*MockLineBotClient)(nil).ReplyMessage), varargs...)
+}
+
+// RevokeAccessToken mocks base method.
+func (m *MockLineBotClient) RevokeAccessToken(accessToken string) *linebot.RevokeAccessTokenCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "RevokeAccessToken", accessToken)
+	ret0, _ := ret[0].(*linebot.RevokeAccessTokenCall)
+	return ret0
+}
+
+// RevokeAccessToken indicates an expected call of RevokeAccessToken.
+func (mr *MockLineBotClientMockRecorder) RevokeAccessToken(accessToken interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RevokeAccessToken", reflect.TypeOf((*MockLineBotClient)(nil).RevokeAccessToken), accessToken)
+}
+
+// RevokeAccessTokenV2 mocks base method.
+func (m *MockLineBotClient) RevokeAccessTokenV2(channelID, channelSecret, accessToken string) *linebot.RevokeAccessTokenV2Call {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "RevokeAccessTokenV2", channelID, channelSecret, accessToken)
+	ret0, _ := ret[0].(*linebot.RevokeAccessTokenV2Call)
+	return ret0
+}
+
+// RevokeAccessTokenV2 indicates an expected call of RevokeAccessTokenV2.
+func (mr *MockLineBotClientMockRecorder) RevokeAccessTokenV2(channelID, channelSecret, accessToken interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RevokeAccessTokenV2", reflect.TypeOf((*MockLineBotClient)(nil).RevokeAccessTokenV2), channelID, channelSecret, accessToken)
+}
+
+// SetDefaultRichMenu mocks base method.
+func (m *MockLineBotClient) SetDefaultRichMenu(richMenuID string) *linebot.SetDefaultRichMenuCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SetDefaultRichMenu", richMenuID)
+	ret0, _ := ret[0].(*linebot.SetDefaultRichMenuCall)
+	return ret0
+}
+
+// SetDefaultRichMenu indicates an expected call of SetDefaultRichMenu.
+func (mr *MockLineBotClientMockRecorder) SetDefaultRichMenu(richMenuID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetDefaultRichMenu", reflect.TypeOf((*MockLineBotClient)(nil).SetDefaultRichMenu), richMenuID)
+}
+
+// SetWebhookEndpointURL mocks base method.
+func (m *MockLineBotClient) SetWebhookEndpointURL(webhookEndpoint string) *linebot.SetWebhookEndpointURLCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SetWebhookEndpointURL", webhookEndpoint)
+	ret0, _ := ret[0].(*linebot.SetWebhookEndpointURLCall)
+	return ret0
+}
+
+// SetWebhookEndpointURL indicates an expected call of SetWebhookEndpointURL.
+func (mr *MockLineBotClientMockRecorder) SetWebhookEndpointURL(webhookEndpoint interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetWebhookEndpointURL", reflect.TypeOf((*MockLineBotClient)(nil).SetWebhookEndpointURL), webhookEndpoint)
+}
+
+// TestWebhook mocks base method.
+func (m *MockLineBotClient) TestWebhook() *linebot.TestWebhook {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "TestWebhook")
+	ret0, _ := ret[0].(*linebot.TestWebhook)
+	return ret0
+}
+
+// TestWebhook indicates an expected call of TestWebhook.
+func (mr *MockLineBotClientMockRecorder) TestWebhook() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "TestWebhook", reflect.TypeOf((*MockLineBotClient)(nil).TestWebhook))
+}
+
+// UnlinkUserRichMenu mocks base method.
+func (m *MockLineBotClient) UnlinkUserRichMenu(userID string) *linebot.UnlinkUserRichMenuCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UnlinkUserRichMenu", userID)
+	ret0, _ := ret[0].(*linebot.UnlinkUserRichMenuCall)
+	return ret0
+}
+
+// UnlinkUserRichMenu indicates an expected call of UnlinkUserRichMenu.
+func (mr *MockLineBotClientMockRecorder) UnlinkUserRichMenu(userID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UnlinkUserRichMenu", reflect.TypeOf((*MockLineBotClient)(nil).UnlinkUserRichMenu), userID)
+}
+
 // UpdateAudienceGroupDescription mocks base method.
 func (m *MockLineBotClient) UpdateAudienceGroupDescription(audienceGroupID int, description string) *linebot.UpdateAudienceGroupDescriptionCall {
 	m.ctrl.T.Helper()
@@ -489,6 +1125,20 @@ func (m *MockLineBotClient) UpdateLIFF(liffID string, app linebot.LIFFApp) *line
 func (mr *MockLineBotClientMockRecorder) UpdateLIFF(liffID, app interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateLIFF", reflect.TypeOf((*MockLineBotClient)(nil).UpdateLIFF), liffID, app)
+}
+
+// UpdateRichMenuAlias mocks base method.
+func (m *MockLineBotClient) UpdateRichMenuAlias(richMenuAliasID, richMenuID string) *linebot.UpdateRichMenuAliasCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UpdateRichMenuAlias", richMenuAliasID, richMenuID)
+	ret0, _ := ret[0].(*linebot.UpdateRichMenuAliasCall)
+	return ret0
+}
+
+// UpdateRichMenuAlias indicates an expected call of UpdateRichMenuAlias.
+func (mr *MockLineBotClientMockRecorder) UpdateRichMenuAlias(richMenuAliasID, richMenuID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateRichMenuAlias", reflect.TypeOf((*MockLineBotClient)(nil).UpdateRichMenuAlias), richMenuAliasID, richMenuID)
 }
 
 // UploadAudienceGroup mocks base method.
@@ -527,4 +1177,136 @@ func (mr *MockLineBotClientMockRecorder) UploadAudienceGroupByFile(description, 
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{description, audiences}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UploadAudienceGroupByFile", reflect.TypeOf((*MockLineBotClient)(nil).UploadAudienceGroupByFile), varargs...)
+}
+
+// UploadRichMenuImage mocks base method.
+func (m *MockLineBotClient) UploadRichMenuImage(richMenuID, imgPath string) *linebot.UploadRichMenuImageCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UploadRichMenuImage", richMenuID, imgPath)
+	ret0, _ := ret[0].(*linebot.UploadRichMenuImageCall)
+	return ret0
+}
+
+// UploadRichMenuImage indicates an expected call of UploadRichMenuImage.
+func (mr *MockLineBotClientMockRecorder) UploadRichMenuImage(richMenuID, imgPath interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UploadRichMenuImage", reflect.TypeOf((*MockLineBotClient)(nil).UploadRichMenuImage), richMenuID, imgPath)
+}
+
+// ValidateBroadcastMessage mocks base method.
+func (m *MockLineBotClient) ValidateBroadcastMessage(messages ...linebot.SendingMessage) *linebot.ValidateBroadcastMessageCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{}
+	for _, a := range messages {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ValidateBroadcastMessage", varargs...)
+	ret0, _ := ret[0].(*linebot.ValidateBroadcastMessageCall)
+	return ret0
+}
+
+// ValidateBroadcastMessage indicates an expected call of ValidateBroadcastMessage.
+func (mr *MockLineBotClientMockRecorder) ValidateBroadcastMessage(messages ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ValidateBroadcastMessage", reflect.TypeOf((*MockLineBotClient)(nil).ValidateBroadcastMessage), messages...)
+}
+
+// ValidateMulticastMessage mocks base method.
+func (m *MockLineBotClient) ValidateMulticastMessage(messages ...linebot.SendingMessage) *linebot.ValidateMulticastMessageCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{}
+	for _, a := range messages {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ValidateMulticastMessage", varargs...)
+	ret0, _ := ret[0].(*linebot.ValidateMulticastMessageCall)
+	return ret0
+}
+
+// ValidateMulticastMessage indicates an expected call of ValidateMulticastMessage.
+func (mr *MockLineBotClientMockRecorder) ValidateMulticastMessage(messages ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ValidateMulticastMessage", reflect.TypeOf((*MockLineBotClient)(nil).ValidateMulticastMessage), messages...)
+}
+
+// ValidateNarrowcastMessage mocks base method.
+func (m *MockLineBotClient) ValidateNarrowcastMessage(messages ...linebot.SendingMessage) *linebot.ValidateNarrowcastMessageCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{}
+	for _, a := range messages {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ValidateNarrowcastMessage", varargs...)
+	ret0, _ := ret[0].(*linebot.ValidateNarrowcastMessageCall)
+	return ret0
+}
+
+// ValidateNarrowcastMessage indicates an expected call of ValidateNarrowcastMessage.
+func (mr *MockLineBotClientMockRecorder) ValidateNarrowcastMessage(messages ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ValidateNarrowcastMessage", reflect.TypeOf((*MockLineBotClient)(nil).ValidateNarrowcastMessage), messages...)
+}
+
+// ValidatePushMessage mocks base method.
+func (m *MockLineBotClient) ValidatePushMessage(messages ...linebot.SendingMessage) *linebot.ValidatePushMessageCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{}
+	for _, a := range messages {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ValidatePushMessage", varargs...)
+	ret0, _ := ret[0].(*linebot.ValidatePushMessageCall)
+	return ret0
+}
+
+// ValidatePushMessage indicates an expected call of ValidatePushMessage.
+func (mr *MockLineBotClientMockRecorder) ValidatePushMessage(messages ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ValidatePushMessage", reflect.TypeOf((*MockLineBotClient)(nil).ValidatePushMessage), messages...)
+}
+
+// ValidateReplyMessage mocks base method.
+func (m *MockLineBotClient) ValidateReplyMessage(messages ...linebot.SendingMessage) *linebot.ValidateReplyMessageCall {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{}
+	for _, a := range messages {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ValidateReplyMessage", varargs...)
+	ret0, _ := ret[0].(*linebot.ValidateReplyMessageCall)
+	return ret0
+}
+
+// ValidateReplyMessage indicates an expected call of ValidateReplyMessage.
+func (mr *MockLineBotClientMockRecorder) ValidateReplyMessage(messages ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ValidateReplyMessage", reflect.TypeOf((*MockLineBotClient)(nil).ValidateReplyMessage), messages...)
+}
+
+// ValidateRichMenuObject mocks base method.
+func (m *MockLineBotClient) ValidateRichMenuObject(richMenu linebot.RichMenu) *linebot.ValidateRichMenuObjectCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "ValidateRichMenuObject", richMenu)
+	ret0, _ := ret[0].(*linebot.ValidateRichMenuObjectCall)
+	return ret0
+}
+
+// ValidateRichMenuObject indicates an expected call of ValidateRichMenuObject.
+func (mr *MockLineBotClientMockRecorder) ValidateRichMenuObject(richMenu interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ValidateRichMenuObject", reflect.TypeOf((*MockLineBotClient)(nil).ValidateRichMenuObject), richMenu)
+}
+
+// VerifyAccessToken mocks base method.
+func (m *MockLineBotClient) VerifyAccessToken(accessToken string) *linebot.VerifyAccessTokenCall {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "VerifyAccessToken", accessToken)
+	ret0, _ := ret[0].(*linebot.VerifyAccessTokenCall)
+	return ret0
+}
+
+// VerifyAccessToken indicates an expected call of VerifyAccessToken.
+func (mr *MockLineBotClientMockRecorder) VerifyAccessToken(accessToken interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "VerifyAccessToken", reflect.TypeOf((*MockLineBotClient)(nil).VerifyAccessToken), accessToken)
 }
