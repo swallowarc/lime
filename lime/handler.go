@@ -11,7 +11,7 @@ import (
 
 type (
 	EventHandler interface {
-		Handle(ctx context.Context, event *linebot.Event, cli *linebot.Client) error
+		Handle(ctx context.Context, event *linebot.Event, cli LineBotClient) error
 	}
 
 	webhookHandler struct {
@@ -72,7 +72,7 @@ func (wh *webhookHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 }
 
-func (wh *webhookHandler) callEventHandlers(events []*linebot.Event, cli *linebot.Client) bool {
+func (wh *webhookHandler) callEventHandlers(events []*linebot.Event, cli LineBotClient) bool {
 	ctx, cancel := context.WithTimeout(context.Background(), wh.eventTimeout)
 	defer cancel()
 
