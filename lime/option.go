@@ -49,9 +49,9 @@ func WithHTTPClient(client *http.Client) APIServerOption {
 	}
 }
 
-func WithEventHandler(eventType linebot.EventType, handler EventHandler) APIServerOption {
+func WithEventHandler(handler EventHandler) APIServerOption {
 	return func(s *apiOptions) {
-		s.eventHandlers[eventType] = handler
+		s.eventHandlers[handler.EventType()] = handler
 	}
 }
 

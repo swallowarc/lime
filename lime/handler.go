@@ -12,6 +12,7 @@ import (
 
 type (
 	EventHandler interface {
+		EventType() linebot.EventType
 		Handle(ctx context.Context, event *linebot.Event, cli LineBotClient) error
 	}
 
