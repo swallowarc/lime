@@ -13,10 +13,6 @@ type (
 		EventTimeoutSec int `envconfig:"event_timeout_sec" default:"15"`
 
 		ChannelSecret string `envconfig:"channel_secret" default:"mock-secret"`
-		ChannelToken  string `envconfig:"channel_token" default:"mock-token"`
-
-		LineAPIEndpointBase     string `envconfig:"line_api_endpoint_base" default:"https://api.line.me"`
-		LineAPIEndpointBaseData string `envconfig:"line_api_endpoint_base_data" default:"https://api-data.line.me"`
 
 		// EnableReturnErrorCode is a flag to enable re-delivery webhook.
 		//   If True, returns a code other than 200 when an error occurs in EventHandler.

@@ -1,10 +1,8 @@
 package lime
 
 import (
-	"fmt"
 	"net/http"
 
-	"github.com/line/line-bot-sdk-go/v7/linebot"
 	"go.uber.org/zap"
 )
 
@@ -24,22 +22,12 @@ var (
 	defaultLogger = zap.NewExample()
 )
 
-func NewServer(env Env, ops ...APIServerOption) (APIServer, error) {
+func NewServer(env Env, ops ...APIServerOption) APIServer {
 	opts := newOptions(ops...)
-
-	lineBotCli, err := linebot.New(env.ChannelSecret, env.ChannelToken,
-		linebot.WithHTTPClient(opts.client),
-		linebot.WithEndpointBase(env.LineAPIEndpointBase),
-		linebot.WithEndpointBaseData(env.LineAPIEndpointBaseData),
-	)
-	if err != nil {
-		return nil, fmt.Errorf("failed to create linebot client: %w", err)
-	}
 
 	mux := http.NewServeMux()
 	mux.Handle(env.HandlePath, &webhookHandler{
 		logger:         opts.logger,
-		client:         lineBotCli,
 		channelSecret:  env.ChannelSecret,
 		eventTimeout:   env.EventTimeout(),
 		eventHandlers:  opts.eventHandlers,
@@ -61,7 +49,7 @@ func NewServer(env Env, ops ...APIServerOption) (APIServer, error) {
 		},
 	}
 
-	return s, nil
+	return s
 }
 
 func (s *apiServer) Start() error {

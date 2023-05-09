@@ -14,7 +14,6 @@ type (
 
 	apiOptions struct {
 		logger           *zap.Logger
-		client           *http.Client
 		eventHandlers    map[linebot.EventType]EventHandler
 		healthzHandler   http.HandlerFunc
 		readinessHandler http.HandlerFunc
@@ -24,7 +23,6 @@ type (
 func newOptions(ops ...APIServerOption) *apiOptions {
 	opts := &apiOptions{
 		logger:           defaultLogger,
-		client:           http.DefaultClient,
 		eventHandlers:    make(map[linebot.EventType]EventHandler),
 		healthzHandler:   defaultHealthzHandler,
 		readinessHandler: defaultReadinessHandler,
@@ -40,12 +38,6 @@ func newOptions(ops ...APIServerOption) *apiOptions {
 func WithLogger(logger *zap.Logger) APIServerOption {
 	return func(s *apiOptions) {
 		s.logger = logger
-	}
-}
-
-func WithHTTPClient(client *http.Client) APIServerOption {
-	return func(s *apiOptions) {
-		s.client = client
 	}
 }
 

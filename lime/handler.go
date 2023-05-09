@@ -13,13 +13,11 @@ import (
 type (
 	EventHandler interface {
 		EventType() linebot.EventType
-		Handle(ctx context.Context, event *linebot.Event, cli LineBotClient) error
+		Handle(ctx context.Context, event *linebot.Event) error
 	}
 
 	webhookHandler struct {
-		logger *zap.Logger
-
-		client        LineBotClient
+		logger        *zap.Logger
 		channelSecret string
 
 		eventTimeout   time.Duration
@@ -83,7 +81,7 @@ func (wh *webhookHandler) callEventHandler(event *linebot.Event) bool {
 		return false
 	}
 
-	if err := handler.Handle(ctx, event, wh.client); err != nil {
+	if err := handler.Handle(ctx, event); err != nil {
 		wh.eventLog(zap.ErrorLevel, event, "failed to handle event", start, err)
 		return true
 	}

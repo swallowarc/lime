@@ -18,8 +18,13 @@ func main() {
 		panic(err)
 	}
 
+	cli, err := linebot.New("channel_secret", "channel_token")
+	if err != nil {
+		panic(err)
+	}
+	msgHandler := lime.WithEventHandler(&echoMessageEventHandler{cli: cli})
+
 	logOpt := lime.WithLogger(zap.NewExample())
-	msgHandler := lime.WithEventHandler(&echoMessageEventHandler{})
 	sv, err := lime.NewServer(env, logOpt, msgHandler)
 	if err != nil {
 		panic(err)
@@ -30,16 +35,18 @@ func main() {
 	}
 }
 
-type echoMessageEventHandler struct{}
+type echoMessageEventHandler struct {
+	cli *linebot.Client
+}
 
 func (h *echoMessageEventHandler) EventType() linebot.EventType {
 	return linebot.EventTypeMessage
 }
 
-func (h *echoMessageEventHandler) Handle(_ context.Context, event *linebot.Event, cli lime.LineBotClient) error {
+func (h *echoMessageEventHandler) Handle(_ context.Context, event *linebot.Event) error {
 	switch message := event.Message.(type) {
 	case *linebot.TextMessage:
-		if _, err := cli.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
+		if _, err := h.cli.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
 			log.Print(err)
 		}
 	}
