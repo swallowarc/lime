@@ -25,7 +25,7 @@ func main() {
 	msgHandler := lime.WithEventHandler(&echoMessageEventHandler{cli: cli})
 
 	logOpt := lime.WithLogger(zap.NewExample())
-	sv, err := lime.NewServer(env, logOpt, msgHandler)
+	sv := lime.NewServer(env, logOpt, msgHandler)
 	if err != nil {
 		panic(err)
 	}
